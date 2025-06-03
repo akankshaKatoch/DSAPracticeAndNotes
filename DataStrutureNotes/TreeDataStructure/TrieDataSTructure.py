@@ -16,9 +16,6 @@ intially root have array have size 26 and flag.
 now when we insert 1st word we start with the root. 
 root have array of index 0 -> a , index 25 -> z
 
-
-
-
 """
 class TrieNode:
     def __init__(self):

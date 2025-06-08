@@ -16,6 +16,8 @@ class Tree:
 # Breadth First search output will be -> [1,2,3,4,5]
 # we will access values from each breadth and print it. 
 # we will use queue data structure for it. 
+# BFS Traversal dont have any recursive implementation. 
+# Under the hood recusive function have stack call therefore it wont for BFS search. 
 
     def BFSSearch(self, root):
         if not root: return []

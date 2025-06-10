@@ -138,12 +138,14 @@ Merge steps:
 
 **Total cost:** 95
 
-```
-        95
-       /  \
-     35    60
-    / \   /  \
-  15  20 30  30
- / \
-5  10
+```        95
+         /    \
+       /       \
+     35        60
+    / \        / \
+  15   \      /   \
+ / \    \    /     \
+5  10   20  30     30
+
+(Note: Each node represents the size of the merged lists at that step.)
 ```

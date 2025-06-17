@@ -8,7 +8,34 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __lt__(self, other):
+        return self.val < other.val
+
 class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        min_heap = []
+
+        # Step 1: Add the first node of each list to heap
+        for l in lists:
+            if l:
+                heapq.heappush(min_heap, l)
+        
+        dummy = ListNode(0)
+        curr = dummy
+
+        # Step 2: Extract the min and push next node from the same list
+        while min_heap:
+            node = heapq.heappop(min_heap)
+            print(node.val)
+            curr.next = node
+            curr = curr.next
+
+            if node.next:
+                heapq.heappush(min_heap, node.next)
+
+        return dummy.next
+
+    '''
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         if not list:
             return []
@@ -30,6 +57,7 @@ class Solution:
                 heapq.heappush(minheap, (node.next.val, counter, node.next))
                 counter += 1
         return dummy.next
+        '''
 
 
 

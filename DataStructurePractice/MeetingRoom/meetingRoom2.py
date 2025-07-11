@@ -18,6 +18,29 @@ class Solution:
         
 
 
+import heapq
+
+def minMeetingRooms(intervals):
+    if not intervals:
+        return 0
+
+    # Step 1: Sort by start time
+    intervals.sort(key=lambda x: x[0])
+
+    # Step 2: Min-heap to track end times
+    heap = []
+
+    for meeting in intervals:
+        start, end = meeting
+
+        # If the earliest ending meeting is done, remove it
+        if heap and heap[0] <= start:
+            heapq.heappop(heap)
+
+        # Allocate room for current meeting
+        heapq.heappush(heap, end)
+
+    return len(heap)
 
 
 intervals = [[0,30],[5,10],[15,20]]

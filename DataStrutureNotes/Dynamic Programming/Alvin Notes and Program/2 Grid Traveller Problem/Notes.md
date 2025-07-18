@@ -2,10 +2,11 @@
 
 ## Problem Statement
 
-You are a traveller on a 2D grid. You begin in the top-left corner, and your goal is to travel to the bottom-right corner. You may only move **down** or **right**.
+You are a traveller on a 2D grid. You begin in the **top-left corner**, and your goal is to travel to the **bottom-right corner**. You may only move **down** or **right**.
 
 **Question:**  
-In how many ways can you travel to the goal on a grid with dimensions `m × n`?
+In how many ways can you travel to the goal on a grid with dimensions `m × n`?  
+Write a function `gridTraveler(m, n)` that calculates this.
 
 ---
 
@@ -83,3 +84,36 @@ Suppose we call `gridTraveller(4, 3)`:
 |---------------|----------------|------------------|
 | Brute Force   | O(2^(m+n))     | O(m+n)           |
 | Memoization   | O(m × n)       | O(m+n)           |
+
+---
+
+## Tabulation Method
+
+To compute `gridTraveller(3, 3)` using tabulation:
+
+- Create a grid of size `(m+1) × (n+1)` to handle extra cases.
+- Initialize all positions to `0`.
+
+![Tabulation Grid Initialization](image-8.png)
+
+- Set the base case: `gridTraveller(1, 1)` has only **1 way** to travel.
+
+![Base Case](image-9.png)
+
+- The `0,0` grid has `0` ways.
+- For each cell, add its value to the cell to the **right** and **below**.
+
+![Tabulation Step 1](image-10.png)
+
+- As you iterate, each position starts adding its value to its neighbors.
+
+![Tabulation Progression 1](image-11.png) → ![Tabulation Progression 2](image-12.png) → ![Tabulation Progression 3](image-13.png)
+
+- The final grid looks like this:
+
+![Final Tabulation Grid](image-14.png)
+
+**Complexity:**
+
+- **Time:** O(m × n)
+- **Space:** O(m × n)

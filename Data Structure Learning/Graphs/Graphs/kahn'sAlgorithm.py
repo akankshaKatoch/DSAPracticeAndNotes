@@ -23,7 +23,7 @@ def kahn_topo_sort(graph):
         return "cycle"
     
     return result 
-
+ 
 
 """
 A → C  
